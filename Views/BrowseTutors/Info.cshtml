@@ -1,0 +1,119 @@
+﻿@using TutorMangementSystem.Models.BrowseTutors
+@model TutorMangementSystem.Models.BrowseTutors.TutorInfoModel
+
+
+@{
+    ViewBag.Title = @Model.TutorName;
+}
+
+
+<div class="container">
+    <div class="page-header clearfix detailHeading">
+        <h2 class="text-muted">View Tutor</h2>
+    </div>
+</div>
+
+<div class="jumbotron">
+    <div class="row">
+        <div class="col-md-4">
+            <img class="infoTutorImg" src="@Model.TutorIMG" />
+        </div>
+        <div class="col-md-4">
+            <p id="tName">@Model.TutorName</p>
+            <div class="card-actions">
+                <p id="tSubject" class="itemLabel">Subject:</p>
+                <p class="itemValue">@Model.Subject</p>
+            </div>
+            <div class="card-actions">
+                <p class="itemLabel">Cost: $</p>
+                <p id="tCost" class="itemValue">@Model.Cost</p>
+            </div>
+            <div class="card-actions">
+                <p class="itemLabel">Office Location:</p>
+                <p id="tOffice" class="itemValue">@Model.OfficeLocation</p>
+            </div>
+
+
+
+            @if (Model.ReserveOption == "Reserved")
+            {
+                <p id="studentReserve">Reserved By: @Model.StudentName</p>
+
+                <p><a class="btn btn-lg btn-success" role="button" asp-controller="BrowseTutors" asp-action="UnReserve" asp-route-id="@Model.TutorId">Remove Reservation</a></p>
+                
+
+
+            }
+            @if (Model.ReserveOption == "Available")
+            {
+                <p><a class="btn btn-lg btn-info" role="button" asp-controller="BrowseTutors" asp-action="Reserve" asp-route-id="@Model.TutorId">Reserve</a></p>
+            }
+        </div>
+        <div class="col-md-4 detailInfo">
+            <table>
+                <tr>
+                    <td class="itemLabel">Status:  </td>
+                    <td class="itemValue">@Model.ReserveOption</td>
+                </tr>
+
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-6">
+        <h4>Reservations Already Made</h4>
+        <table class="table table-bordered table-hover table-condensed">
+            <thead>
+                <tr>
+                    <th>Date Reserved</th>
+                    <th>Date Availiable</th>
+                    <th>Member Id</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var reserve in @Model.ReservationsRegister)
+                {
+                    <tr>
+                        <td>
+                            @reserve.ReservedSince
+                        </td>
+                        <td>
+                            @reserve.AvailiableSince
+                        </td>
+                        <td>
+                            @reserve.MemberId.Id
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="col-lg-6">
+        <h4>Current Reservations Wishlist</h4>
+        <table class="table table-bordered table-hover table-condensed">
+            <thead>
+                <tr>
+                    <th>Reserved</th>
+                    <th>Student</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var wishlist in @Model.CurrWishlist)
+                {
+                    <tr>
+                        <td>
+                            @wishlist.WishlistCreated
+                        </td>
+                        <td>
+                            @wishlist.StudentName
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+

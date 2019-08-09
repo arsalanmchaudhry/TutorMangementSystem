@@ -1,0 +1,47 @@
+﻿@using TutorMangementSystem.Models.ReserveModels
+@model TutorMangementSystem.Models.ReserveModels.ReserveModel
+
+@{
+     ViewBag.Title = @Model.Tutor;
+}
+
+
+
+@*@model is the model directive*@
+
+
+<h1>Wishlist</h1>
+
+<div class="container">
+    <div class="header clearfix detailHeading">
+        <h2 class="text-muted">Place Tutor in Wishlist</h2>
+    </div>
+
+    <div class="jumbotron">
+        <div class="row">
+            <div class="col-md-3">
+                <div>
+                    <p id="itemTitle">@Model.Tutor </p>
+                    <img class="detailImage" src="@Model.IMG " />
+                </div>
+            </div>
+           
+            <div class="col-md-9">
+                <p>There are currently @Model.WishlistCount holds in the queue for this item.</p>
+               
+                @using (Html.BeginForm("AddToWishlist", "BrowseTutors", FormMethod.Post))
+                {
+                    @Html.HiddenFor(a => a.TutorId)
+                    <div>
+                        Please insert a Member Card ID.
+                        @Html.TextBoxFor(a => a.MemberId)
+                        
+                    </div>
+                    <div>
+                        <button type="submit" class="btn btn-info btn-lg">Place Hold</button>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

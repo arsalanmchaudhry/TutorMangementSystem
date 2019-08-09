@@ -1,0 +1,71 @@
+﻿@using TutorMangementSystem.Models.OfficeModels
+@model TutorMangementSystem.Models.OfficeModels.OfficeDetailModel
+@{
+    ViewBag.Title = @Model.OfficeName + " Branch";
+}
+
+
+<div >
+
+    <div>
+        <div>
+            <div class="overview-graphs-wrapper full-width-graph">
+                <div class="graph-label">Opened Since: @Model.OfficeOpenDate</div>
+                <div class="report-block-seperator"></div>
+                <div>
+                    <h1>@Model.OfficeName</h1>
+                </div>
+                <p class="paragraph-34">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.</p>
+                <div class="div-block-2 _2">
+                    <div class="report-block">
+                        <div class="report-block-left">
+                            <div class="report-block-label">Students</div>
+                            <div class="report-block-seperator"></div><a href="#" class="report-figure-link">@Model.NumberOfStudents</a>
+                            <div class="report-description-line">Total Students till date</div>
+                        </div>
+                    </div>
+                    <div class="report-block">
+                        <div class="report-block-left">
+                            <div class="report-block-label">Tutors</div>
+                            <div class="report-block-seperator"></div><a href="#" class="report-figure-link booking-number">@Model.NumberOfTutors</a>
+                            <div class="report-description-line">Total Tutors at Location</div>
+                        </div>
+                    </div>
+                    <div class="report-block">
+                        <div class="report-block-left">
+                            <div class="report-block-label">Address</div>
+                            <div class="report-block-seperator"></div><a href="#" class="report-figure-link queries-number">@Model.Address</a>
+                            <div class="report-description-line">Office Location</div>
+                        </div>
+                    </div>
+                    <div class="report-block">
+                        <div class="report-block-left">
+                            <div class="report-block-label">Telephone</div>
+                            <div class="report-block-seperator"></div><a href="#" class="report-figure-link tasks-number">@Model.Telephone</a>
+                            <div class="report-description-line">Contact Us</div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+                <div ><img src="@Model.OfficeImg" alt="" class="image-30"></div>
+                <div>
+                    <div class="graph-label">Office Hours</div>
+                    <div class="report-block-seperator"></div>
+
+                    <div id="branchHours">
+                        <ul>
+                            @foreach (var day in @Model.HoursOpen)
+                            {
+                                <li>@day</li>
+                            }
+                        </ul>
+                    </div> 
+               
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

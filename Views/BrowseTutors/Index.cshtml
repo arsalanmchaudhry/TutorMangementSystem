@@ -1,0 +1,44 @@
+﻿@model TutorMangementSystem.Models.BrowseTutors.TutorIndexModelCollection
+
+
+@{
+    ViewData["Title"] = "Browse Tutors";
+}
+
+
+
+<div id="tutors">
+
+    <h3>Browse Tutors</h3>
+    <div id="tutorsTable">
+        <table class="table table-condensed" id="tutorsIndexTable">
+            <thead>
+                <tr>
+                    <th>Image</th>
+                    <th>Tutor</th>
+                    <th>Cost</th>
+                    <th>Subject</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var tutor in Model.Tutors)
+                {
+                    <tr class="tutorRow">
+                        <td class="">
+                            <a asp-controller="BrowseTutors" asp-action="Info" asp-route-id="@tutor.Id">
+                                <img src="@tutor.TutorIMG" class="tutorImg" />
+                            </a>
+
+                        </td>
+                        <td>@tutor.TutorName</td>
+                        <td>@tutor.Cost</td>
+                        <td>@tutor.Subject</td>
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+
+</div>

@@ -1,0 +1,51 @@
+﻿
+@using TutorMangementSystem.Models.ReserveModels
+@model TutorMangementSystem.Models.ReserveModels.ReserveModel
+
+@{
+    ViewData["Title"] = "Reserve";
+}
+
+
+
+@*@model is the model directive*@
+
+
+<h1>Reserve</h1>
+
+    <div>
+        <div>
+            <div class="overview-graphs-wrapper full-width-graph">
+                <div class="graph-label">Tutor: </div>
+                <div class="report-block-seperator"></div>
+                <div>
+                    <h1>@Model.Tutor</h1>
+                </div>
+                <p class="paragraph-34">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.</p>
+                <div class="div-block-2 _2">
+                    <div class="report-block">
+                        @using (Html.BeginForm("AddReservation", "BrowseTutors", FormMethod.Post))
+                        {
+                            @Html.HiddenFor(a => a.TutorId)
+                            <div>
+                                Please insert a Member Card ID.
+                                @Html.TextBoxFor(a => a.MemberId)
+
+                            </div>
+                            <div>
+                                <button type="submit" class="btn btn-success btn-lg">Reserve Tutor</button>
+                            </div>
+                        }
+                    </div>
+                   
+                </div>
+
+
+
+
+                <div><img src="@Model.IMG" alt="" class="detailImg2"></div>
+               
+            </div>
+        </div>
+    </div>
+</div>

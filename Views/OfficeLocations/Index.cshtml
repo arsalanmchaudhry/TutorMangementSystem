@@ -1,0 +1,31 @@
+﻿@model TutorMangementSystem.Models.OfficeModels.OfficeIndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<div id="officeIndex">
+    <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp customTable" id="officeIndexTable">
+        <thead>
+            <tr>
+                <th>Office Name</th>
+                <th>Open Now</th>
+                <th>Number Of Tutors</th>
+                <th>Number of Students</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var branch in Model.Offices)
+            {
+                <tr>
+                    <td class="strongTd"><a asp-controller="OfficeLocations" asp-action="Detail" asp-route-id="@branch.Id">@branch.OfficeName</a></td>
+                    <td>@branch.IsOpen</td>
+                    <td>@branch.NumberOfTutors</td>
+                    <td>@branch.NumberOfStudents</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

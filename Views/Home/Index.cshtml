@@ -1,0 +1,42 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="section">
+    <div class="wrap w50">
+        <div class="headline-6-col">
+            <div class="tagline">Tutor Mangement System</div>
+            <h2>Click one of the below options!</h2>
+        </div>
+        <div class="blog5-articles-wrapper">
+            <div class="_4-col">
+                <div class="blog5-article-wrapper">
+                    <div class="blog5-article-cover blog5-article-image1"></div>
+                    
+                    <h2>Tutors</h2>
+                    
+                    <a asp-controller="BrowseTutors" asp-action="Index" class="btn w-button">Browse Tutors</a>
+                </div>
+            </div>
+            <div class="_4-col">
+                <div class="blog5-article-wrapper">
+                    <div class="blog5-article-cover blog5-article-image2"></div>
+
+                    <h2>Students</h2>
+                    
+                    <a asp-controller="Students" asp-action="Index" class="btn w-button">View Student Index</a>
+                </div>
+            </div>
+            <div class="_4-col _4-col-last">
+                <div class="blog5-article-wrapper">
+                    <div class="blog5-article-cover blog5-article-image3"></div>
+
+                    <h2>Offices</h2>
+
+                    <a asp-controller="Home" asp-action="BranchLocation" class="btn w-button">View Location</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

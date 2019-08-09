@@ -1,0 +1,50 @@
+﻿@model TutorMangementSystem.Models.Student
+
+@{
+    ViewData["Title"] = "Register Student";
+}
+
+<h4>Student Registration Form</h4>
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="StudentId" />
+            <div class="form-group">
+                <label asp-for="StudentName" class="control-label"></label>
+                <input asp-for="StudentName" class="form-control" />
+                <span asp-validation-for="StudentName" class="text-danger"></span>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label asp-for="SchoolGradeLevel" class="control-label"></label>
+                    <input asp-for="SchoolGradeLevel" class="form-control" />
+                    <span asp-validation-for="SchoolGradeLevel" class="text-danger"></span>
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label asp-for="Major" class="control-label"></label>
+                    <input asp-for="Major" class="form-control" />
+                    <span asp-validation-for="Major" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-4">
+                    <label asp-for="College" class="control-label"></label>
+                    <input asp-for="College" class="form-control" />
+                    <span asp-validation-for="College" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Register Student" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
