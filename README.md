@@ -1,6 +1,6 @@
 # TutorMangementSystem
 
-The web app allows a user to use CRUD and manage a tutor system.
+The web app uses ASP.Net Core and the MVC pattern.
 <img width="1098" alt="1" src="https://user-images.githubusercontent.com/29239699/62756972-45e74080-ba3f-11e9-9c1a-41e3cace0602.PNG">
 
 A user (student) can Browse through a collection list of available tutors that one can reserve. The user can view the tutor image, name, cost of tutoring, the subject the tutor teaches.
